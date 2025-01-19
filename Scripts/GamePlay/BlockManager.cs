@@ -56,7 +56,6 @@ public class BlockManager : MonoBehaviour
                 //Set which puzzle the block belongs to
                 FindPuzzle(heldObject);
 
-                //turn off player movement while holding block
                 pMovement.StopMovement();
 
                 //we only want to know wether the player is looking up/down or left/right 
@@ -95,33 +94,24 @@ public class BlockManager : MonoBehaviour
                                 Vector2 startPos = puzzle.BlockPosition(heldObject);
 
                                 if (puzzle.ValidBlockMove(startPos, new Vector2(startPos.x, startPos.y - 1), true, Direction.down, heldObject))
-                                {
                                     puzzle.UpdateObjectLists(new Vector2(startPos.x, startPos.y), new Vector2(startPos.x, startPos.y - 1), heldObject, true);
-                                }
                             }
                         }
                         else
                         {
                             if (!puzzle.GetMoving() && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A)))
                             {
-                                //get the blocks position on the board
                                 Vector2 startPos = puzzle.BlockPosition(heldObject);
 
-                                //check if the position above it is a legal move
                                 if (puzzle.ValidBlockMove(startPos, new Vector2(startPos.x, startPos.y + 1), false, Direction.up, heldObject))
-                                {
-                                    //if it is make the move
                                     puzzle.UpdateObjectLists(new Vector2(startPos.x, startPos.y), new Vector2(startPos.x, startPos.y + 1), heldObject, false);
-                                }
                             }
                             else if (!puzzle.GetMoving() && (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D)))
                             {
                                 Vector2 startPos = puzzle.BlockPosition(heldObject);
 
                                 if (puzzle.ValidBlockMove(startPos, new Vector2(startPos.x, startPos.y - 1), true, Direction.down, heldObject))
-                                {
                                     puzzle.UpdateObjectLists(new Vector2(startPos.x, startPos.y), new Vector2(startPos.x, startPos.y - 1), heldObject, true);
-                                }
                             }
                         }
                         break;
@@ -133,18 +123,14 @@ public class BlockManager : MonoBehaviour
                                 Vector2 startPos = puzzle.BlockPosition(heldObject);
 
                                 if (puzzle.ValidBlockMove(startPos, new Vector2(startPos.x + 1, startPos.y), false, Direction.right, heldObject))
-                                {
                                     puzzle.UpdateObjectLists(new Vector2(startPos.x, startPos.y), new Vector2(startPos.x + 1, startPos.y), heldObject, false);
-                                }
                             }
                             else if (!puzzle.GetMoving() && (Input.GetAxis("Horizontal") < -0.5f || Input.GetAxis("Vertical") < -0.5f))
                             {
                                 Vector2 startPos = puzzle.BlockPosition(heldObject);
 
                                 if (puzzle.ValidBlockMove(startPos, new Vector2(startPos.x - 1, startPos.y), true, Direction.left, heldObject))
-                                {
                                     puzzle.UpdateObjectLists(new Vector2(startPos.x, startPos.y), new Vector2(startPos.x - 1, startPos.y), heldObject, true);
-                                }
                             }
                         }
                         else
@@ -154,18 +140,14 @@ public class BlockManager : MonoBehaviour
                                 Vector2 startPos = puzzle.BlockPosition(heldObject);
 
                                 if (puzzle.ValidBlockMove(startPos, new Vector2(startPos.x + 1, startPos.y), false, Direction.right, heldObject))
-                                {
                                     puzzle.UpdateObjectLists(new Vector2(startPos.x, startPos.y), new Vector2(startPos.x + 1, startPos.y), heldObject, false);
-                                }
                             }
                             else if (!puzzle.GetMoving() && (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S)))
                             {
                                 Vector2 startPos = puzzle.BlockPosition(heldObject);
 
                                 if (puzzle.ValidBlockMove(startPos, new Vector2(startPos.x - 1, startPos.y), true, Direction.left, heldObject))
-                                {
                                     puzzle.UpdateObjectLists(new Vector2(startPos.x, startPos.y), new Vector2(startPos.x - 1, startPos.y), heldObject, true);
-                                }
                             }
                         }
                         break;
@@ -177,18 +159,14 @@ public class BlockManager : MonoBehaviour
                                 Vector2 startPos = puzzle.BlockPosition(heldObject);
 
                                 if (puzzle.ValidBlockMove(startPos, new Vector2(startPos.x, startPos.y + 1), true, Direction.up, heldObject))
-                                {
                                     puzzle.UpdateObjectLists(new Vector2(startPos.x, startPos.y), new Vector2(startPos.x, startPos.y + 1), heldObject, true);
-                                }
                             }
                             else if (!puzzle.GetMoving() && (Input.GetAxis("Vertical") < -0.5f || Input.GetAxis("Horizontal") > 0.5f))
                             {
                                 Vector2 startPos = puzzle.BlockPosition(heldObject);
 
                                 if (puzzle.ValidBlockMove(startPos, new Vector2(startPos.x, startPos.y - 1), false, Direction.down, heldObject))
-                                {
                                     puzzle.UpdateObjectLists(new Vector2(startPos.x, startPos.y), new Vector2(startPos.x, startPos.y - 1), heldObject, false);
-                                }
                             }
                         }
                         else
@@ -198,18 +176,14 @@ public class BlockManager : MonoBehaviour
                                 Vector2 startPos = puzzle.BlockPosition(heldObject);
 
                                 if (puzzle.ValidBlockMove(startPos, new Vector2(startPos.x, startPos.y + 1), true, Direction.up, heldObject))
-                                {
                                     puzzle.UpdateObjectLists(new Vector2(startPos.x, startPos.y), new Vector2(startPos.x, startPos.y + 1), heldObject, true);
-                                }
                             }
                             else if (!puzzle.GetMoving() && (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D)))
                             {
                                 Vector2 startPos = puzzle.BlockPosition(heldObject);
 
                                 if (puzzle.ValidBlockMove(startPos, new Vector2(startPos.x, startPos.y - 1), false, Direction.down, heldObject))
-                                {
                                     puzzle.UpdateObjectLists(new Vector2(startPos.x, startPos.y), new Vector2(startPos.x, startPos.y - 1), heldObject, false);
-                                }
                             }
                         }
                         break;
@@ -221,18 +195,14 @@ public class BlockManager : MonoBehaviour
                                 Vector2 startPos = puzzle.BlockPosition(heldObject);
 
                                 if (puzzle.ValidBlockMove(startPos, new Vector2(startPos.x + 1, startPos.y), true, Direction.right, heldObject))
-                                {
                                     puzzle.UpdateObjectLists(new Vector2(startPos.x, startPos.y), new Vector2(startPos.x + 1, startPos.y), heldObject, true);
-                                }
                             }
                             else if (!puzzle.GetMoving() && (Input.GetAxis("Horizontal") < -0.5f || Input.GetAxis("Vertical") < -0.5f))
                             {
                                 Vector2 startPos = puzzle.BlockPosition(heldObject);
 
                                 if (puzzle.ValidBlockMove(startPos, new Vector2(startPos.x - 1, startPos.y), false, Direction.left, heldObject))
-                                {
                                     puzzle.UpdateObjectLists(new Vector2(startPos.x, startPos.y), new Vector2(startPos.x - 1, startPos.y), heldObject, false);
-                                }
                             }
                         }
                         else
@@ -242,18 +212,14 @@ public class BlockManager : MonoBehaviour
                                 Vector2 startPos = puzzle.BlockPosition(heldObject);
 
                                 if (puzzle.ValidBlockMove(startPos, new Vector2(startPos.x + 1, startPos.y), true, Direction.right, heldObject))
-                                {
                                     puzzle.UpdateObjectLists(new Vector2(startPos.x, startPos.y), new Vector2(startPos.x + 1, startPos.y), heldObject, true);
-                                }
                             }
                             else if (!puzzle.GetMoving() && (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S)))
                                 {
                                 Vector2 startPos = puzzle.BlockPosition(heldObject);
 
                                 if (puzzle.ValidBlockMove(startPos, new Vector2(startPos.x - 1, startPos.y), false, Direction.left, heldObject))
-                                {
                                     puzzle.UpdateObjectLists(new Vector2(startPos.x, startPos.y), new Vector2(startPos.x - 1, startPos.y), heldObject, false);
-                                }
                             }
                         }
                         
@@ -378,7 +344,7 @@ public class BlockManager : MonoBehaviour
         heldObject = null;
     }
 
-    //figure óut which puzzle the block belongs to
+    //figure Ã³ut which puzzle the block belongs to
     private void FindPuzzle(GameObject block)
     {
         for (int i = 0; i < listOfPuzzles.Count; i++)
