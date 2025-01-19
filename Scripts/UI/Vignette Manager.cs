@@ -29,7 +29,6 @@ public class VignetteManager : MonoBehaviour
 
         StartCoroutine(Vignette());
         
-        //having the routine active from the start helps fix a bug, it's weird but works. 
         StartCoroutine(SetVignetteValue(0));
     } 
 
@@ -38,9 +37,8 @@ public class VignetteManager : MonoBehaviour
         while(true)
         {
             if(vg.intensity.value != 0.8)
-            {
                 vg.intensity.value += vgMinSpeed;
-            }
+                
             yield return null;
         }
     }
@@ -50,6 +48,7 @@ public class VignetteManager : MonoBehaviour
         if (!isRunning)
         {
             isRunning = true;
+            
             StartCoroutine(SetVignetteValue(value));
         }
         else
